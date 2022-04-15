@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Table</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table/css/sorting.css' %}">
+  <script src="{% static 'table/js/sorting.js' %}"></script>
+</head>
+
+<body>
+{% include 'table/search.html' %}
+  <table class="table_sort">
+    <thead>
+      <tr>
+        <th>Дата</th>
+        <th>Название</th>
+        <th>Количество</th>
+        <th>Расстояние</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in table %}
+      <tr>
+        <td>{{ i.date }}</td>
+        <td>{{ i.title }}</td>
+        <td>{{ i.quantity }}</td>
+        <td>{{ i.distance }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
